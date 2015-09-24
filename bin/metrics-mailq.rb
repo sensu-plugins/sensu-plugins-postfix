@@ -38,7 +38,7 @@ class PostfixMailqMetrics < Sensu::Plugin::Metric::CLI::Graphite
 
   def run
     timestamp = Time.now.to_i
-    queue = `#{config[:path]} | /bin/egrep '[0-9]+ Kbytes in [0-9]+ Request\|Mail queue is empty'`
+    queue = `#{config[:path]} 2>&1 | /bin/egrep '[0-9]+ Kbytes in [0-9]+ Request\|Mail queue is empty'`
     # Set the number of messages in the queue
     if queue == 'Mail queue is empty'
       num_messages = 0
