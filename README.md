@@ -11,6 +11,7 @@
 
 ## Files
  * bin/check-mailq.rb
+ * bin/check-mail-delay.rb
  * bin/metrics-mailq.rb
 
 ## Usage
