@@ -8,8 +8,6 @@ DATA_DIR=/tmp/kitchen/data
 SENSU_DIR=/opt/sensu
 GEM=$SENSU_DIR/embedded/bin/gem
 RUBY=$SENSU_DIR/embedded/bin/ruby
-CHECK_MAILQ="$SENSU_DIR/embedded/bin/check-mailq.rb"
-METRICS_MAILQ="$SENSU_DIR/embedded/bin/metrics-mailq.rb"
 
 if [ ! -d $SENSU_DIR ]; then
   wget -q http://repositories.sensuapp.org/apt/pubkey.gpg -O- | sudo apt-key add -
@@ -23,10 +21,3 @@ fi
 cd $DATA_DIR
 SIGN_GEM=false $GEM build sensu-plugins-postfix.gemspec
 sudo sensu-install -p sensu-plugins-postfix-*.gem
-
-$CHECK_MAILQ -w 1 -c 2
-$CHECK_MAILQ -q all -w 1 -c 2
-$CHECK_MAILQ -q active -w 1 -c 2
-$CHECK_MAILQ -q deferred -w 1 -c 2
-$CHECK_MAILQ -q hold -w 1 -c 2
-$CHECK_MAILQ -q incoming -w 1 -c 2

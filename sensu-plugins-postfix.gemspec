@@ -52,4 +52,5 @@ Gem::Specification.new do |s|
   # Hold back net-ssh to a version compatible with Ruby 1.9
   s.add_development_dependency 'net-ssh',                   '~> 2.9'
   s.add_development_dependency 'kitchen-vagrant',           '~> 0.19.0'
+  s.add_development_dependency 'kitchen-localhost',         '~> 0.3'
 end
