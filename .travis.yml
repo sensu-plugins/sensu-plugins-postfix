@@ -1,4 +1,6 @@
 language: ruby
+sudo: required
+dist: trusty
 cache:
   - bundler
 install:
@@ -17,3 +19,7 @@ notifications:
 
 script:
   - 'bundle exec rake default'
+  - 'bundle exec kitchen test'
+
+env:
+  - KITCHEN_LOCAL_YAML=.kitchen.travis.yml
