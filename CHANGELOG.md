@@ -4,9 +4,14 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
 
 ## Unreleased
+
+## [0.1.0] - 2016-01-29
 ### Added
 - Add support to `check-mailq` for inspecting each Postfix queue individually
 - Add a `check-mail-delay` script to support alerting by age of queue items
+
+### Fixed
+- metrics-mailq.rb: don't output stderr when the mail queue is empty
 
 ## [0.0.3] - 2015-07-14
 ### Changed
