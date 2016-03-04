@@ -18,16 +18,18 @@ notifications:
     on_failure: always
 script:
 - bundle exec rake default
+- gem build sensu-plugins-postfix.gemspec
+- gem install sensu-plugins-postfix-*.gem
 - bundle exec kitchen test
 env:
 - KITCHEN_LOCAL_YAML=.kitchen.travis.yml
 deploy:
   provider: rubygems
   api_key:
-    secure: KySqhL+Ezri0NnCo3toif5//BdKv/0opFHKDAVX6Ja0vnA5b+iddA+k8X0zl7XR0AIiAPZUg2iEohJHqgSIQfbUhsLJ9IUh3O+3h+diPRbK0+cwXFYNdMnK2rN4Srd/15zYDPQTQ8HNAPPuRUcAS9xIGz9anTHs8QMk06ILcpIo=
+    secure: LkxKFc6KYmwTfuwIhFWSktky5TiJMvI79+RpHaX3BUyEnqZMAVNxtmTXpWqqglXGjgEGeClYl1WMCXIamw2zeLlK6CEuBJXcVXs4O27UKkvfzVmiDYBITPtF02mTVCTYd5NNch67Rh5rT7wTN2hxWbiE2OFw6/WIF9hD2mr1484=
   gem: sensu-plugins-postfix
   on:
-    tags: true
+    ags: true
     all_branches: true
     rvm: 1.9.3
     rvm: 2.0

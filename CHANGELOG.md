@@ -15,16 +15,18 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 ## [0.0.3] - 2015-07-14
 ### Changed
+- executable tag in gemspec
 - updated sensu-plugin gem to 1.2.0
+
+## [0.0.2] - 2015-05-30
+### Fixed
+- executable tag in gemspec
 
 ## 0.0.1 - 2015-04-30
 ### Added
 - initial release
 
-## 0.0.2 - 2015-05-30
-### Fixed
-- executable tag in gemspec
-
-## 0.0.3 - 2015-06-04
-### Fixed
-- executable tag in gemspec
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-postfix/compare/0.1.0...HEAD
+[0.1.0]: https://github.com/sensu-plugins/sensu-plugins-postfix/compare/0.0.3...0.1.0
+[0.0.3]: https://github.com/sensu-plugins/sensu-plugins-postfix/compare/0.0.2...0.0.3
+[0.0.2]: https://github.com/sensu-plugins/sensu-plugins-postfix/compare/0.0.1...0.0.2

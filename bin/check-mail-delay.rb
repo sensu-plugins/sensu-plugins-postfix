@@ -133,7 +133,7 @@ class PostfixMailDelay < Sensu::Plugin::Check::CLI
     output = `#{config[:path]} | /bin/egrep -A 1 '^[0-9A-F]+ +'`.split("\n--\n")
     queue = []
     output.each do |o|
-      if o.lines[1].strip.match(/^\(.*\)$/)
+      if o.lines[1].strip =~ /^\(.*\)$/
         fields = o.lines[0].split
         queue << "#{fields[2]} #{fields[3]} #{fields[4]} #{fields[5]}"
       end
@@ -163,7 +163,7 @@ class PostfixMailDelay < Sensu::Plugin::Check::CLI
     output = `#{config[:path]} | /bin/egrep -A 1 '^[0-9A-F]+ +'`.split("\n--\n")
     queue = []
     output.each do |o|
-      unless o.lines[1].strip.match(/^\(.*\)$/)
+      unless o.lines[1].strip =~ /^\(.*\)$/
         fields = o.lines[0].split
         queue << "#{fields[2]} #{fields[3]} #{fields[4]} #{fields[5]}"
       end
