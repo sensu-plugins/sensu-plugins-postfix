@@ -29,7 +29,7 @@ deploy:
     secure: LkxKFc6KYmwTfuwIhFWSktky5TiJMvI79+RpHaX3BUyEnqZMAVNxtmTXpWqqglXGjgEGeClYl1WMCXIamw2zeLlK6CEuBJXcVXs4O27UKkvfzVmiDYBITPtF02mTVCTYd5NNch67Rh5rT7wTN2hxWbiE2OFw6/WIF9hD2mr1484=
   gem: sensu-plugins-postfix
   on:
-    ags: true
+    tags: true
     all_branches: true
     rvm: 1.9.3
     rvm: 2.0
