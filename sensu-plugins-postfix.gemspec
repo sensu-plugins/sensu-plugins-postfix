@@ -2,12 +2,7 @@ lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 require 'date'
-
-if RUBY_VERSION < '2.0.0'
-  require 'sensu-plugins-postfix'
-else
-  require_relative 'lib/sensu-plugins-postfix'
-end
+require_relative 'lib/sensu-plugins-postfix'
 
 Gem::Specification.new do |s|
   s.authors                = ['Sensu-Plugins and contributors']
@@ -30,7 +25,7 @@ Gem::Specification.new do |s|
   s.platform               = Gem::Platform::RUBY
   s.post_install_message   = 'You can use the embedded Ruby by setting EMBEDDED_RUBY=true in /etc/default/sensu'
   s.require_paths          = ['lib']
-  s.required_ruby_version  = '>= 1.9.3'
+  s.required_ruby_version  = '>= 2.0.0'
   s.summary                = 'Sensu plugins for postfix'
   s.test_files             = s.files.grep(%r{^(test|spec|features)/})
   s.version                = SensuPluginsPostfix::Version::VER_STRING
@@ -47,8 +42,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rubocop',                   '~> 0.40.0'
   s.add_development_dependency 'yard',                      '~> 0.8'
   s.add_development_dependency 'test-kitchen',              '~> 1.5'
-  # Hold back net-ssh to a version compatible with Ruby 1.9
-  s.add_development_dependency 'net-ssh',                   '~> 2.9'
   s.add_development_dependency 'kitchen-vagrant',           '~> 0.19.0'
   s.add_development_dependency 'kitchen-localhost',         '~> 0.3'
 end
