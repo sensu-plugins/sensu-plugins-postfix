@@ -19,13 +19,13 @@
 #   check-smtp-ehlo.rb --help
 #
 # NOTES:
+#   N/A
 #
 # LICENSE:
 #   Copyright 2016 Magic Online,  www.magic.fr - <hanynowsky@gmail.com>
 #   Released under the same terms as Sensu (the MIT license); see LICENSE
 #   for details.
 #
-
 
 require 'sensu-plugin/check/cli'
 require 'net/smtp'
@@ -118,21 +118,21 @@ class CheckSMTPEHLO < Sensu::Plugin::Check::CLI
   rescue Timeout::Error
     critical "Timeout Error. T > #{config[:timeout]}"
   rescue Net::ReadTimeout => ne
-    critical "Timeout error: #{e.message}"
+    critical "Timeout error: #{ne.message}"
   rescue => e
     critical "Cannot login to SMTP -  TRACE: #{e.message}"
   end
 
-  # Main Function 
+  # Main Function
   def run
     result = check_ehlo.to_i
     ok "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/check-smtp-ehlo.rb \
     --warn-only --domain google.com --hostname localhost --port 25 \
     --method EHLO|HELO \nCURRENT VALUES: #{config.inspect} \n option: \
     --smtpbind has priority" if config[:help]
-    warning "SMTP #{config[:method]} Failure" if result != 250 and config[:warn_only]
+    warning "SMTP #{config[:method]} Failure" if result != 250 && config[:warn_only]
     critical "SMTP #{config[:method]} Failure" if result != 250
-    ok "SMTP #{config[:method]} success: #{}" if result == 250
+    ok "SMTP #{config[:method]} success" if result == 250
     unknown "Could not fetch SMTP #{config[:method]} response"
   end
 end
