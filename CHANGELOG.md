@@ -4,6 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
+- Add `check-smtp-ehlo` for checking whether SMTP is functional
 
 ## [0.1.0] - 2016-01-29
 ### Added
@@ -11,7 +12,7 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 - Add a `check-mail-delay` script to support alerting by age of queue items
 
 ### Fixed
-- metrics-mailq.rb: don't output stderr when the mail queue is empty
+- metrics-mailq.rb: do not output stderr when the mail queue is empty
 
 ## [0.0.3] - 2015-07-14
 ### Changed
