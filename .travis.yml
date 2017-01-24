@@ -17,12 +17,17 @@ notifications:
     on_success: change
     on_failure: always
 script:
+- rvm use --default $TRAVIS_RUBY_VERSION
+- echo 'export PATH="$PATH:/home/travis/.rvm/bin"' | sudo tee -a /etc/profile
+- echo 'source /home/travis/.rvm/scripts/rvm' | sudo tee -a /etc/profile
 - bundle exec rake default
+- bundle exec kitchen test
+- sudo chown -R travis:travis /home/travis/.rvm
 - gem build sensu-plugins-postfix.gemspec
 - gem install sensu-plugins-postfix-*.gem
-- bundle exec kitchen test
 env:
-- KITCHEN_LOCAL_YAML=.kitchen.travis.yml
+  global:
+    - KITCHEN_LOCAL_YAML=.kitchen.travis.yml
 deploy:
   provider: rubygems
   api_key:

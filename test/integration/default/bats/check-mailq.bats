@@ -1,13 +1,28 @@
 #!/usr/bin/env bats
 
 setup() {
-  export CHECK_MAILQ="sudo -u sensu /opt/sensu/embedded/bin/check-mailq.rb"
+  export OLD_RUBY_HOME=$RUBY_HOME
+  export OLD_GEM_HOME=$GEM_HOME
+  export OLD_GEM_PATH=$GEM_PATH
+
+  unset GEM_HOME
+  unset GEM_PATH
+  source /etc/profile
+  export RUBY_HOME=${MY_RUBY_HOME:-/opt/sensu/embedded}
+
+  INNER_GEM_HOME=$($RUBY_HOME/bin/ruby -e 'print ENV["GEM_HOME"]')
+  [ -n "$INNER_GEM_HOME" ] && GEM_BIN=$INNER_GEM_HOME/bin || GEM_BIN=$RUBY_HOME/bin
+  export CHECK="$RUBY_HOME/bin/ruby $GEM_BIN/check-mailq.rb"
 }
 
 teardown() {
   clear_queue
   unset_connect_timeout
   postfix reload
+
+  export RUBY_HOME=$OLD_RUBY_HOME
+  export GEM_HOME=$OLD_GEM_HOME
+  export GEM_PATH=$OLD_GEM_PATH
 }
 
 clear_queue() {
