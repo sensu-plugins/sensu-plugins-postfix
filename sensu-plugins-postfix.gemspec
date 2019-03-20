@@ -42,6 +42,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rubocop',                   '~> 0.40.0'
   s.add_development_dependency 'yard',                      '~> 0.8'
   s.add_development_dependency 'test-kitchen',              '~> 1.5'
-  s.add_development_dependency 'kitchen-vagrant',           '~> 0.19.0'
+  s.add_development_dependency 'kitchen-vagrant',           '~> 1.5.1'
   s.add_development_dependency 'kitchen-localhost',         '~> 0.3'
 end
