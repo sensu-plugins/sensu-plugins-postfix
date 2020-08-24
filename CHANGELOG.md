@@ -5,6 +5,7 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 ## [Unreleased]
 
+## [2.0.0] - 2020-08-24
 ### Breaking Changes
 - Remove support for old Ruby (< 2.3)
 - Remove kitchen test reliant on Sensu Core
@@ -48,7 +49,8 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ### Added
 - initial release
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-postfix/compare/1.0.0...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-postfix/compare/2.0.0...HEAD
+[2.0.0]: https://github.com/sensu-plugins/sensu-plugins-postfix/compare/1.0.0...2.0.0
 [1.0.0]: https://github.com/sensu-plugins/sensu-plugins-postfix/compare/0.1.0...1.0.0
 [0.1.0]: https://github.com/sensu-plugins/sensu-plugins-postfix/compare/0.0.3...0.1.0
 [0.0.3]: https://github.com/sensu-plugins/sensu-plugins-postfix/compare/0.0.2...0.0.3
