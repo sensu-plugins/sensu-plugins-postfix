@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SensuPluginsPostfix
   module Version
     MAJOR = 1

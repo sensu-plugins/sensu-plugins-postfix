@@ -5,6 +5,18 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 ## [Unreleased]
 
+### Breaking Changes
+- Remove support for old Ruby (< 2.3)
+- Remove kitchen test reliant on Sensu Core
+- Bump sensu-plugin dependency from ~> 1.2 to ~> 4.0
+
+### Changed
+- Updated bundler dependancy to '~> 2.1'
+- Updated rubocop dependency to '~> 0.81.0'
+- Remediated rubocop issues
+- Updated codeclimate-test-reporter to '~> 1.0'
+- Updated rake dependency to '~> 13.0'
+
 ## [1.0.0] - 2017-07-26
 ### Breaking Change
 - Remove support for Ruby 1.9.3 (@eheydrick)
